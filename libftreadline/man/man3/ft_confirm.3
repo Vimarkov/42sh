@@ -1,0 +1,29 @@
+.TH ft_confirm 3 "25 April 2018" "" "42 Student Lib"
+.SH NAME
+ft_confirm - Ask for confirmation
+.SH SYNOPSYS
+#include <libftreadline.h>
+
+.nf
+.I char *
+.fi
+.B ft_confirm
+(const char *msg, int outfd, t_dflact dfl);
+
+.SH DESCRIPTION
+.B 
+ft_confirm()
+asks the user for confirmation. You pass a message to be displayed
+and the default action (Yes or No) which describe the action to be used
+when the user presses the return key.
+
+.SH RETURN VALUES
+.B ft_confirm()
+returns 1 if the user answers Yes, or 0 otherwise.
+In case of error, -1 is returned.
+
+.SH SEE ALSO
+Nothing for now
+
+.SH AUTHOR
+Copyright kdumarai@ - 2017-2018 - Kelian DUMARAIS

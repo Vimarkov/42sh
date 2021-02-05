@@ -1,0 +1,31 @@
+.TH libftreadline 3 "13 April 2018" "" "42 Student Lib"
+.SH NAME
+libftreadline - Simple readline-alike lib for students
+.SH SYNOPSYS
+#include <libftreadline.h>
+
+.nf
+.I char *
+.fi
+.B ft_readline
+(const char *prompt, t_rl_opts *opts, t_rl_hist *hist);
+
+.nf
+.I int
+.fi
+.B ft_confirm
+(const char *msg, int outfd, t_dflact dfl);
+
+.SH DESCRIPTION
+libftreadline allows to get a line from the command line
+with line-editing capabilities. It features termcaps compatibility
+and still works when $TERM is undefined.
+prompt may be NULL. In that case, no prompt is showed.
+Cursor must be positionned at the beginning of the line.
+Any other position is undefined behavior.
+
+.SH SEE ALSO
+Nothing for now
+
+.SH AUTHOR
+Copyright kdumarai@ - 2017-2018 - Kelian DUMARAIS

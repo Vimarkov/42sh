@@ -1,0 +1,67 @@
+.TH ft_readline 3 "13 April 2018" "" "42 Student Lib"
+.SH NAME
+ft_readline - Read a line from stdin
+.SH SYNOPSYS
+#include <libftreadline.h>
+
+.nf
+.I int
+.fi
+.B ft_readline
+(char **line, const char *prompt, t_rl_opts *opts, t_dlist *hist);
+
+.SH DESCRIPTION
+.B 
+ft_readline()
+reads a line from stdin and puts a malloced copy in the pointer referenced by
+.B line.
+You should free the returned result once you are done dealing with it.
+Its other arguments are the prompt as a C-string, your options via a ref
+to a
+.B t_rl_opts struct
+and the head of a
+.B t_dlist doubly-linked list.
+
+.SH OPTIONS
+Options should be passed via the
+.B t_rl_opts
+struct. The struct looks like the following:
+.LP
+.B typedef struct	s_rl_opts
+.br
+.B {
+.br
+	t_list	*(*ac_get_result)(char *, t_cursor *);
+.br
+	char		*(*ac_show_result)(t_list **);
+.br
+	char		*(*ac_show_result_dumb)(t_list **);
+.br
+	int		outfd;
+.br
+	t_uint8	tbell;
+.br
+	t_uint8	dumb_prompt;
+.br
+	t_uint8	prompt_perline;
+.br
+	char		reserved_pad;
+.br
+.B }			t_rl_opts;
+.br
+
+.SH UNICODE
+While planned, unicode support is yet to be written.
+
+.SH RETURN VALUES
+If EOF is catched,
+.B ft_readline()
+returns FTLR_EOF. Otherwise, FTRL_OK is returned.
+In case of a failure, FTRL_FAIL is returned.
+If Ctrl-C is catched, FTRL_SIGINT is returned.
+
+.SH SEE ALSO
+Nothing for now
+
+.SH AUTHOR
+Copyright kdumarai@ - 2018 - Kelian DUMARAIS
